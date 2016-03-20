@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Importing packages</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h3>Importing packages</h3>
+
+<pre><code class="r">library(ggplot2)
+library(scales)
+library(polycor)
+library(dplyr)
+library(lazyeval)
+library(reshape2)
+library(caret)
+</code></pre>
+
+<h3>Set seed for the sake of reproducibility</h3>
+
+<pre><code class="r">set.seed(42)
+</code></pre>
+
+<h3>Functions definitions</h3>
+
+<pre><code class="r">calculateMRSE &lt;- function(predicted, gold){
+  all &lt;- cbind(predicted, gold)
+  all &lt;- all %&gt;% mutate( RSE = ( (predicted/V_168) - 1 ) ** 2 )
+  return(mean(all$RSE))
+}
+</code></pre>
+
+<h3>Read in the data.csv and analyse the basic statistics of V(n)</h3>
+
+<pre><code class="r">dataset &lt;- read.csv(file=&quot;data.csv&quot;, 
+                    sep=&quot;,&quot;, 
+                    header=FALSE, 
+                    stringsAsFactors=FALSE,
+                    col.names=c(&quot;id&quot;, paste(&quot;V&quot;, seq(1, 168), sep=&quot;_&quot;)))
+</code></pre>
+
+<h3>Check n = {24;72;168} as well</h3>
+
+<pre><code class="r">chosen &lt;- dataset[,c(&#39;V_24&#39;, &#39;V_72&#39;, &#39;V_168&#39;)]
+summary(chosen)
+</code></pre>
+
+<pre><code>##       V_24               V_72              V_168         
+##  Min.   :   21173   Min.   :   26162   Min.   :   27139  
+##  1st Qu.:  124866   1st Qu.:  148326   1st Qu.:  153346  
+##  Median :  194358   Median :  237418   Median :  252287  
+##  Mean   :  376766   Mean   :  613303   Mean   :  743210  
+##  3rd Qu.:  326667   3rd Qu.:  433612   3rd Qu.:  522259  
+##  Max.   :15284639   Max.   :22916701   Max.   :27898237
+</code></pre>
+
+<h3>Returns Tukey&#39;s five number summary (minimum, lower-hinge, median, upper-hinge, maximum)</h3>
+
+<pre><code class="r">sapply(chosen, function(x) fivenum(x) )
+</code></pre>
+
+<pre><code>##            V_24       V_72      V_168
+## [1,]    21173.0    26162.0    27139.0
+## [2,]   124864.0   148295.5   153343.5
+## [3,]   194357.5   237417.5   252287.0
+## [4,]   326780.0   434525.5   522564.5
+## [5,] 15284639.0 22916701.0 27898237.0
+</code></pre>
+
+<h3>Plot the distribution of the v(168)</h3>
+
+<pre><code class="r">ggplot(dataset, aes(x=V_168)) + 
+       geom_histogram(aes(y=..density..),
+       binwidth=10000,
+       colour=&quot;black&quot;, fill=&quot;white&quot;) +
+       geom_density(alpha=.2, fill=&quot;#FF6666&quot;) + 
+       scale_x_continuous(labels = comma) + 
+       scale_y_continuous(labels = comma)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">ggplot(dataset, aes(x=V_168)) +
+       geom_histogram(binwidth=10000, colour=&quot;black&quot;, fill=&quot;white&quot;) +
+       geom_vline(aes(xintercept=mean(V_168)),
+                  color=&quot;red&quot;, linetype=&quot;dashed&quot;, size=1) +
+       scale_x_continuous(labels = comma) + 
+       scale_y_continuous(labels = comma)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<h4>The distributon is very skewed, which is typical for data on virtual communities</h4>
+
+<h3>Lets make log transform on it</h3>
+
+<pre><code class="r">ggplot(dataset, aes(x=log10(V_168 + 1))) + 
+  geom_histogram(aes(y=..density..),
+                 colour=&quot;black&quot;, fill=&quot;white&quot;) +
+  geom_density(alpha=.2, fill=&quot;#FF6666&quot;) + 
+  scale_x_continuous(labels = comma) + 
+  scale_y_continuous(labels = comma)
+</code></pre>
+
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-8"/> </p>
+
+<pre><code class="r">ggplot(dataset, aes(x=log10(V_168 + 1))) +
+  geom_histogram(colour=&quot;black&quot;, fill=&quot;white&quot;) +
+  geom_vline(aes(xintercept=mean(log10(V_168 + 1))),
+             color=&quot;red&quot;, linetype=&quot;dashed&quot;, size=1) +
+  scale_x_continuous(labels = comma) + 
+  scale_y_continuous(labels = comma)
+</code></pre>
+
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-8"/> </p>
+
+<h3>Remove outliers from the dataset</h3>
+
+<pre><code class="r">mean_v_168 &lt;- mean(log10(dataset[,&quot;V_168&quot;]))
+std_v_168 &lt;- sd(log10(dataset[,&quot;V_168&quot;]))
+
+dataset &lt;- dataset[((mean_v_168 - 3*std_v_168 &lt;= log10(dataset[,&quot;V_168&quot;])) &amp; 
+                     (log10(dataset[,&quot;V_168&quot;]) &lt;= mean_v_168 + 3*std_v_168)), ]
+</code></pre>
+
+<h3>Compute correlation coefficients between the log-transformed v(n) for n = {1;2;&hellip;;24} and v(168)</h3>
+
+<pre><code class="r">df_cor_cols &lt;- paste(&quot;V&quot;, seq(1, 24), sep=&quot;_&quot;)
+df_cor_all &lt;- c(&quot;V_168&quot;, df_cor_cols)
+dfcor &lt;- dataset %&gt;% 
+          mutate(V_1 = ifelse(V_1 == 0, 1, V_1)) %&gt;%
+          mutate_each_(funs(log10), df_cor_cols) %&gt;% 
+          select_(interp(~one_of(df_cor_all), var = as.name(df_cor_all)))
+
+cormat &lt;- round(cor(dfcor),2)
+melted_cormat &lt;- melt(cormat)
+head(melted_cormat, 25)
+</code></pre>
+
+<pre><code>##     Var1  Var2 value
+## 1  V_168 V_168  1.00
+## 2    V_1 V_168  0.18
+## 3    V_2 V_168  0.53
+## 4    V_3 V_168  0.58
+## 5    V_4 V_168  0.61
+## 6    V_5 V_168  0.63
+## 7    V_6 V_168  0.64
+## 8    V_7 V_168  0.65
+## 9    V_8 V_168  0.67
+## 10   V_9 V_168  0.67
+## 11  V_10 V_168  0.68
+## 12  V_11 V_168  0.69
+## 13  V_12 V_168  0.69
+## 14  V_13 V_168  0.70
+## 15  V_14 V_168  0.70
+## 16  V_15 V_168  0.71
+## 17  V_16 V_168  0.72
+## 18  V_17 V_168  0.72
+## 19  V_18 V_168  0.73
+## 20  V_19 V_168  0.73
+## 21  V_20 V_168  0.74
+## 22  V_21 V_168  0.74
+## 23  V_22 V_168  0.74
+## 24  V_23 V_168  0.75
+## 25  V_24 V_168  0.75
+</code></pre>
+
+<h3>More corelations</h3>
+
+<pre><code class="r">hetcor(dfcor)
+</code></pre>
+
+<pre><code>## 
+## Two-Step Estimates
+## 
+## Correlations/Type of Correlation:
+##        V_168     V_1     V_2     V_3     V_4     V_5     V_6     V_7
+## V_168      1 Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_1   0.1797       1 Pearson Pearson Pearson Pearson Pearson Pearson
+## V_2   0.5262  0.3926       1 Pearson Pearson Pearson Pearson Pearson
+## V_3   0.5806  0.3045  0.9616       1 Pearson Pearson Pearson Pearson
+## V_4   0.6054  0.2876  0.9423  0.9955       1 Pearson Pearson Pearson
+## V_5   0.6258  0.2841  0.9341  0.9902  0.9978       1 Pearson Pearson
+## V_6   0.6412   0.283  0.9275  0.9845  0.9938  0.9984       1 Pearson
+## V_7   0.6539  0.2823  0.9211  0.9784  0.9886  0.9946  0.9986       1
+## V_8    0.665  0.2817  0.9147  0.9716  0.9825  0.9895  0.9951  0.9987
+## V_9   0.6743  0.2798  0.9082  0.9645  0.9758  0.9835  0.9904  0.9956
+## V_10  0.6817    0.28  0.9027  0.9581  0.9695  0.9777  0.9854  0.9917
+## V_11  0.6873  0.2806  0.8986   0.953  0.9643  0.9726  0.9809   0.988
+## V_12  0.6931  0.2814  0.8945  0.9485  0.9597  0.9681  0.9768  0.9843
+## V_13  0.6988  0.2815  0.8911  0.9446  0.9558  0.9644  0.9732  0.9812
+## V_14  0.7045  0.2815  0.8877   0.941  0.9524  0.9611  0.9701  0.9783
+## V_15  0.7103  0.2809  0.8842  0.9376  0.9492  0.9581  0.9672  0.9756
+## V_16  0.7161  0.2802  0.8811  0.9348  0.9465  0.9556  0.9649  0.9734
+## V_17  0.7218  0.2794  0.8781   0.932   0.944  0.9533  0.9627  0.9714
+## V_18  0.7269   0.279  0.8747  0.9288  0.9411  0.9506  0.9602   0.969
+## V_19  0.7316  0.2782  0.8713  0.9256  0.9381  0.9479  0.9576  0.9665
+## V_20  0.7358  0.2767  0.8681  0.9225  0.9352  0.9452  0.9551  0.9642
+## V_21  0.7397   0.276  0.8651  0.9196  0.9325  0.9426  0.9527   0.962
+## V_22  0.7433  0.2757  0.8628  0.9173  0.9304  0.9406  0.9508  0.9602
+## V_23  0.7458  0.2754  0.8608  0.9155  0.9286  0.9389  0.9491  0.9585
+## V_24  0.7482  0.2751  0.8591  0.9138  0.9271  0.9373  0.9476   0.957
+##           V_8     V_9    V_10    V_11    V_12    V_13    V_14    V_15
+## V_168 Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_1   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_2   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_3   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_4   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_5   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_6   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_7   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_8         1 Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_9    0.9988       1 Pearson Pearson Pearson Pearson Pearson Pearson
+## V_10   0.9963  0.9991       1 Pearson Pearson Pearson Pearson Pearson
+## V_11   0.9935  0.9974  0.9994       1 Pearson Pearson Pearson Pearson
+## V_12   0.9905  0.9952  0.9982  0.9996       1 Pearson Pearson Pearson
+## V_13   0.9878  0.9931  0.9966  0.9986  0.9997       1 Pearson Pearson
+## V_14   0.9853  0.9909  0.9949  0.9974  0.9989  0.9997       1 Pearson
+## V_15   0.9828  0.9888  0.9931  0.9959  0.9978  0.9991  0.9998       1
+## V_16   0.9808  0.9869  0.9914  0.9944  0.9966  0.9981  0.9992  0.9998
+## V_17   0.9789   0.985  0.9896  0.9927   0.995  0.9968  0.9982  0.9991
+## V_18   0.9766  0.9829  0.9875  0.9907  0.9933  0.9952  0.9968  0.9981
+## V_19   0.9743  0.9807  0.9855  0.9888  0.9915  0.9937  0.9955   0.997
+## V_20   0.9722  0.9788  0.9837  0.9871  0.9899  0.9923  0.9942  0.9959
+## V_21   0.9702  0.9769  0.9819  0.9855  0.9885  0.9909   0.993  0.9948
+## V_22   0.9684  0.9752  0.9803   0.984  0.9871  0.9896  0.9918  0.9938
+## V_23   0.9668  0.9737  0.9789  0.9826  0.9858  0.9884  0.9908  0.9928
+## V_24   0.9653  0.9722  0.9775  0.9813  0.9846  0.9873  0.9897  0.9919
+##          V_16    V_17    V_18    V_19    V_20    V_21    V_22    V_23
+## V_168 Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_1   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_2   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_3   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_4   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_5   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_6   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_7   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_8   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_9   Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_10  Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_11  Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_12  Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_13  Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_14  Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_15  Pearson Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_16        1 Pearson Pearson Pearson Pearson Pearson Pearson Pearson
+## V_17   0.9997       1 Pearson Pearson Pearson Pearson Pearson Pearson
+## V_18   0.9991  0.9998       1 Pearson Pearson Pearson Pearson Pearson
+## V_19   0.9982  0.9992  0.9998       1 Pearson Pearson Pearson Pearson
+## V_20   0.9973  0.9986  0.9994  0.9999       1 Pearson Pearson Pearson
+## V_21   0.9964  0.9979  0.9989  0.9996  0.9999       1 Pearson Pearson
+## V_22   0.9955  0.9972  0.9984  0.9992  0.9996  0.9999       1 Pearson
+## V_23   0.9947  0.9965  0.9978  0.9987  0.9993  0.9997  0.9999       1
+## V_24   0.9939  0.9957  0.9971  0.9981  0.9988  0.9993  0.9997  0.9999
+##          V_24
+## V_168 Pearson
+## V_1   Pearson
+## V_2   Pearson
+## V_3   Pearson
+## V_4   Pearson
+## V_5   Pearson
+## V_6   Pearson
+## V_7   Pearson
+## V_8   Pearson
+## V_9   Pearson
+## V_10  Pearson
+## V_11  Pearson
+## V_12  Pearson
+## V_13  Pearson
+## V_14  Pearson
+## V_15  Pearson
+## V_16  Pearson
+## V_17  Pearson
+## V_18  Pearson
+## V_19  Pearson
+## V_20  Pearson
+## V_21  Pearson
+## V_22  Pearson
+## V_23  Pearson
+## V_24        1
+## 
+## Standard Errors:
+##         V_168     V_1      V_2       V_3       V_4       V_5       V_6
+## V_168                                                                 
+## V_1   0.03226                                                         
+## V_2   0.02412  0.0282                                                 
+## V_3   0.02211 0.03025 0.002514                                        
+## V_4   0.02113 0.03058 0.003744 0.0002974                              
+## V_5   0.02029 0.03065 0.004258 0.0006534 0.0001456                    
+## V_6   0.01964 0.03067 0.004666  0.001024 0.0004129 0.0001101          
+## V_7    0.0191 0.03068 0.005058   0.00143 0.0007553 0.0003575 9.263e-05
+## V_8   0.01861 0.03069 0.005453  0.001872   0.00116 0.0006963 0.0003259
+## V_9   0.01819 0.03073 0.005846  0.002328  0.001599  0.001091 0.0006389
+## V_10  0.01786 0.03072  0.00618  0.002737  0.002007  0.001474  0.000968
+## V_11   0.0176 0.03071  0.00643  0.003064  0.002344  0.001802  0.001264
+## V_12  0.01734  0.0307  0.00667  0.003353  0.002639  0.002093  0.001535
+## V_13  0.01707  0.0307 0.006875  0.003597  0.002884  0.002335  0.001765
+## V_14   0.0168  0.0307 0.007078  0.003823  0.003105  0.002547  0.001969
+## V_15  0.01653 0.03071 0.007282  0.004034  0.003308  0.002742  0.002155
+## V_16  0.01625 0.03072 0.007463  0.004213  0.003475  0.002898  0.002305
+## V_17  0.01598 0.03073 0.007643  0.004386  0.003632  0.003043  0.002443
+## V_18  0.01573 0.03074 0.007843  0.004586  0.003818  0.003215  0.002606
+## V_19  0.01551 0.03076 0.008038  0.004785  0.004007  0.003391  0.002774
+## V_20   0.0153 0.03078 0.008226  0.004975  0.004188  0.003562  0.002932
+## V_21  0.01511  0.0308   0.0084  0.005156  0.004358  0.003724  0.003084
+## V_22  0.01493  0.0308 0.008532  0.005292  0.004486  0.003846  0.003204
+## V_23  0.01481 0.03081 0.008644  0.005406  0.004597  0.003957  0.003312
+## V_24  0.01469 0.03081 0.008744  0.005506  0.004693  0.004053  0.003408
+##             V_7       V_8       V_9      V_10      V_11      V_12
+## V_168                                                            
+## V_1                                                              
+## V_2                                                              
+## V_3                                                              
+## V_4                                                              
+## V_5                                                              
+## V_6                                                              
+## V_7                                                              
+## V_8   8.737e-05                                                  
+## V_9   0.0002958  7.94e-05                                        
+## V_10  0.0005498 0.0002455 5.841e-05                              
+## V_11  0.0007991 0.0004346 0.0001757 3.752e-05                    
+## V_12   0.001038 0.0006301 0.0003187 0.0001232 2.844e-05          
+## V_13   0.001247 0.0008085 0.0004606 0.0002246 9.034e-05  2.11e-05
+## V_14   0.001435 0.0009764 0.0006035  0.000339 0.0001744 7.117e-05
+## V_15    0.00161  0.001136 0.0007454 0.0004606 0.0002742 0.0001444
+## V_16   0.001752  0.001269 0.0008692 0.0005741 0.0003753 0.0002284
+## V_17   0.001884  0.001396 0.0009925 0.0006932 0.0004883   0.00033
+## V_18    0.00204  0.001543  0.001134 0.0008289 0.0006172 0.0004481
+## V_19   0.002199  0.001694  0.001276  0.000964 0.0007447 0.0005651
+## V_20   0.002346   0.00183  0.001402  0.001083 0.0008562 0.0006681
+## V_21   0.002488  0.001962  0.001524  0.001196 0.0009619  0.000766
+## V_22   0.002606  0.002077  0.001634    0.0013  0.001061 0.0008584
+## V_23   0.002714  0.002183  0.001735  0.001395   0.00115 0.0009413
+## V_24   0.002811  0.002278  0.001828  0.001485  0.001235  0.001021
+##            V_13      V_14      V_15      V_16      V_17      V_18
+## V_168                                                            
+## V_1                                                              
+## V_2                                                              
+## V_3                                                              
+## V_4                                                              
+## V_5                                                              
+## V_6                                                              
+## V_7                                                              
+## V_8                                                              
+## V_9                                                              
+## V_10                                                             
+## V_11                                                             
+## V_12                                                             
+## V_13                                                             
+## V_14  1.706e-05                                                  
+## V_15  6.221e-05 1.531e-05                                        
+## V_16  0.0001258 5.528e-05  1.39e-05                              
+## V_17  0.0002122 0.0001227 5.865e-05   1.7e-05                    
+## V_18  0.0003167 0.0002107 0.0001272 6.188e-05 1.512e-05          
+## V_19  0.0004216 0.0003017 0.0002024 0.0001191 5.024e-05 1.153e-05
+## V_20  0.0005155 0.0003852 0.0002741 0.0001778 9.296e-05 3.753e-05
+## V_21  0.0006051  0.000466 0.0003449 0.0002377 0.0001398 7.079e-05
+## V_22  0.0006908 0.0005439  0.000414  0.000297 0.0001879  0.000108
+## V_23  0.0007675 0.0006141  0.000477 0.0003529 0.0002357 0.0001476
+## V_24  0.0008414 0.0006822 0.0005392 0.0004092 0.0002854 0.0001907
+##            V_19      V_20      V_21      V_22      V_23
+## V_168                                                  
+## V_1                                                    
+## V_2                                                    
+## V_3                                                    
+## V_4                                                    
+## V_5                                                    
+## V_6                                                    
+## V_7                                                    
+## V_8                                                    
+## V_9                                                    
+## V_10                                                   
+## V_11                                                   
+## V_12                                                   
+## V_13                                                   
+## V_14                                                   
+## V_15                                                   
+## V_16                                                   
+## V_17                                                   
+## V_18                                                   
+## V_19                                                   
+## V_20  8.892e-06                                        
+## V_21  2.928e-05   7.1e-06                              
+## V_22  5.592e-05 2.428e-05 6.477e-06                    
+## V_23  8.792e-05 4.892e-05 2.236e-05 5.899e-06          
+## V_24  0.0001248 7.965e-05 4.574e-05 2.125e-05 5.204e-06
+## 
+## n = 901 
+## 
+## P-values for Tests of Bivariate Normality:
+##                       V_168                   V_1       V_2       V_3
+## V_168                                                                
+## V_1                       0                                          
+## V_2              5.218e-281                     0                    
+## V_3               3.33e-282                     0 1.157e-39          
+## V_4              2.617e-284                     0 9.224e-43   0.08752
+## V_5              1.241e-284                     0 5.152e-36  0.002706
+## V_6              5.559e-286 8.89318162514244e-323  4.36e-30   0.04308
+## V_7              5.511e-288 1.31915527439613e-321 8.417e-24   0.05922
+## V_8              2.735e-290 5.09400010697786e-317 1.046e-21   0.03744
+## V_9              1.624e-292 2.41100000000037e-312 3.285e-20 0.0005223
+## V_10             6.586e-294            7.211e-307 2.688e-17  3.21e-05
+## V_11             2.317e-296            1.871e-305 6.271e-16 0.0001207
+## V_12  7.48099999999999e-298            1.603e-301 1.065e-13 3.077e-05
+## V_13             1.681e-298            1.108e-298 3.224e-14 3.737e-06
+## V_14             1.166e-297             3.94e-297 1.768e-14 1.134e-07
+## V_15             7.165e-299            1.847e-296 1.302e-15 8.296e-09
+## V_16  8.83699999999999e-300            3.675e-296 4.025e-17 1.567e-10
+## V_17             2.188e-301            1.095e-294 1.244e-14 9.901e-09
+## V_18             1.161e-302            2.587e-293 2.364e-15 1.648e-09
+## V_19              5.86e-304            2.901e-293 2.052e-14 4.587e-08
+## V_20             6.244e-305             2.18e-292 8.403e-15 5.122e-09
+## V_21             1.936e-305            6.259e-294 3.458e-15 3.912e-09
+## V_22             6.381e-306            1.295e-293 1.429e-15 1.438e-09
+## V_23             1.235e-306            5.245e-294 9.208e-16 1.787e-10
+## V_24             6.073e-307            1.916e-291 2.831e-16 5.408e-11
+##             V_4       V_5       V_6       V_7      V_8       V_9      V_10
+## V_168                                                                     
+## V_1                                                                       
+## V_2                                                                       
+## V_3                                                                       
+## V_4                                                                       
+## V_5         NaN                                                           
+## V_6      0.7391       NaN                                                 
+## V_7      0.3661 2.264e-07       NaN                                       
+## V_8      0.1796 0.0004383    0.1734       NaN                             
+## V_9    0.001228 0.0001623 0.0002022    0.5239      NaN                    
+## V_10  3.621e-06 4.549e-09 9.228e-06    0.3744      NaN       NaN          
+## V_11  3.874e-05 4.563e-07 0.0002505    0.4706   0.4926       NaN       NaN
+## V_12  8.219e-05 2.587e-05    0.0079    0.5937   0.4915    0.3348       NaN
+## V_13  9.746e-05 2.953e-05   0.01211    0.5292   0.4974    0.3942       NaN
+## V_14   2.07e-06 3.023e-05   0.01103     0.347   0.3144    0.2522    0.3616
+## V_15  1.394e-07 3.399e-06 3.214e-05  0.001766   0.1139   0.09205   0.09418
+## V_16  3.041e-09 1.078e-07  1.34e-05 0.0001908  0.05832   0.03633   0.04853
+## V_17  3.237e-08 3.247e-07 2.172e-05  6.14e-05  0.07715    0.0417    0.1414
+## V_18  5.719e-09 7.632e-07 3.564e-05 0.0001313  0.06847  0.001237 0.0002442
+## V_19    2.1e-08 2.651e-06 0.0001451 0.0009805   0.1356  0.005416  0.001727
+## V_20  1.392e-09 1.055e-07 2.542e-06 0.0001347  0.02978 1.133e-08   7.6e-11
+## V_21  3.254e-10 2.569e-08 4.712e-07 2.641e-05 0.005213 6.259e-09 2.219e-11
+## V_22   1.55e-10 2.541e-08 5.175e-07  3.21e-05 0.004841 1.967e-08 1.282e-10
+## V_23  1.594e-11 1.587e-08 2.838e-07  1.96e-05 0.002349   1.4e-08 1.671e-10
+## V_24   6.97e-12 7.096e-09 8.396e-08 1.022e-05 0.001206 1.304e-08 2.754e-10
+##            V_11      V_12      V_13      V_14      V_15      V_16
+## V_168                                                            
+## V_1                                                              
+## V_2                                                              
+## V_3                                                              
+## V_4                                                              
+## V_5                                                              
+## V_6                                                              
+## V_7                                                              
+## V_8                                                              
+## V_9                                                              
+## V_10                                                             
+## V_11                                                             
+## V_12        NaN                                                  
+## V_13        NaN       NaN                                        
+## V_14        NaN       NaN       NaN                              
+## V_15    0.03553       NaN       NaN       NaN                    
+## V_16    0.02022       NaN       NaN       NaN       NaN          
+## V_17    0.09948    0.3917       NaN       NaN       NaN       NaN
+## V_18  4.824e-05 3.465e-06  6.83e-09       NaN       NaN       NaN
+## V_19  0.0008049 6.686e-05 1.139e-06 4.774e-09       NaN       NaN
+## V_20  4.255e-13 8.761e-18 4.088e-23 4.438e-31 3.659e-10       NaN
+## V_21  7.615e-13 9.074e-17 8.033e-21 1.591e-26 1.019e-08       NaN
+## V_22   4.11e-12 1.477e-15 1.208e-18 4.758e-23 1.443e-07 4.261e-10
+## V_23  9.752e-12  5.29e-15 1.309e-17 3.214e-21  2.35e-07 2.754e-09
+## V_24  1.991e-11 1.399e-14 1.182e-16 1.164e-19 7.533e-07  1.67e-08
+##            V_17 V_18 V_19 V_20 V_21 V_22 V_23
+## V_168                                        
+## V_1                                          
+## V_2                                          
+## V_3                                          
+## V_4                                          
+## V_5                                          
+## V_6                                          
+## V_7                                          
+## V_8                                          
+## V_9                                          
+## V_10                                         
+## V_11                                         
+## V_12                                         
+## V_13                                         
+## V_14                                         
+## V_15                                         
+## V_16                                         
+## V_17                                         
+## V_18        NaN                              
+## V_19        NaN  NaN                         
+## V_20        NaN  NaN  NaN                    
+## V_21        NaN  NaN  NaN  NaN               
+## V_22        NaN  NaN  NaN  NaN  NaN          
+## V_23        NaN  NaN  NaN  NaN  NaN  NaN     
+## V_24  2.398e-12  NaN  NaN  NaN  NaN  NaN  NaN
+</code></pre>
+
+<h3>Randomly split the dataset into training and test sets (10% for testing, rest for training)</h3>
+
+<pre><code class="r">testIndex = createDataPartition(dataset$V_168, p = 0.9)[[1]]
+testing = dataset[-testIndex,]
+training = dataset[testIndex,]
+
+cls_indx = which(names(training) %in% c(&quot;id&quot;))
+</code></pre>
+
+<h4>Using training data, and linear regressor that minimizes Ordinary Least Squares (OLS) error function. It should take as the input v(n) and output v(168).</h4>
+
+<pre><code class="r">modelFit &lt;- train(V_168 ~ ., method=&quot;lm&quot;, data=training[,-cls_indx])
+</code></pre>
+
+<h3>Extend the above linear regressor with multiple inputs,</h3>
+
+<pre><code class="r">incremental &lt;- c()
+results &lt;- data.frame(V=NULL, mRSE=NULL, regression=NULL)
+
+for (feature_name in df_cor_cols){
+  incremental &lt;- append(incremental, feature_name)
+  formula &lt;- as.formula(paste(&quot;V_168 ~&quot;, feature_name))
+  formulaMulti &lt;- as.formula(paste(&quot;V_168 ~&quot;, ifelse(length(incremental) &lt; 2, 
+                                                     &#39; V_1&#39;, 
+                                                     paste(incremental, collapse = &#39; + &#39;))))
+  if (length(incremental) %% 3 == 0) {
+    print(formula)
+    print(formulaMulti)
+  }
+  modelFit &lt;- train(formula, method=&quot;lm&quot;, data=training[,-cls_indx])
+  modelMultiFit &lt;- train(formulaMulti, method=&quot;lm&quot;, data=training[,-cls_indx])
+  if (length(incremental) %% 3 == 0) {
+    print(modelFit)
+    print(modelMultiFit)
+  }
+  predicted &lt;- predict(modelFit,testing[,-cls_indx])
+  predictedMulti &lt;- predict(modelMultiFit,testing[,-cls_indx])
+
+  b &lt;- data.frame(V = length(incremental), mRSE = calculateMRSE(predicted, testing), regression=&#39;single&#39;)
+  m &lt;- data.frame(V = length(incremental), mRSE = calculateMRSE(predictedMulti, testing), regression=&#39;multi&#39;)
+  results &lt;- bind_rows(results, b)
+  results &lt;- bind_rows(results, m)
+}
+</code></pre>
+
+<pre><code>## V_168 ~ V_3
+## V_168 ~ V_1 + V_2 + V_3
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   575580.3  0.5310711  57687.78  0.0670051  
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   556778.6  0.6079046  78064.54  0.07477231 
+## 
+##  
+## V_168 ~ V_6
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   511798.2  0.6622939  71043.63  0.06493348 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   515607.7  0.6309894  75000.38  0.08002323 
+## 
+##  
+## V_168 ~ V_9
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6 + V_7 + V_8 + V_9
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD  Rsquared SD
+##   500154.1  0.6788725  54249.1  0.05280748 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   545721.8  0.6503169  69930.32  0.05799645 
+## 
+##  
+## V_168 ~ V_12
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6 + V_7 + V_8 + V_9 + 
+##     V_10 + V_11 + V_12
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   484379.9  0.7294938  65886.81  0.04708449 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   499950.4  0.7080339  61905.33  0.08320907 
+## 
+##  
+## V_168 ~ V_15
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6 + V_7 + V_8 + V_9 + 
+##     V_10 + V_11 + V_12 + V_13 + V_14 + V_15
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   429496.7  0.7580848  63720.69  0.03560364 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD  Rsquared SD
+##   390284.2  0.7971093  58815.2  0.04209511 
+## 
+##  
+## V_168 ~ V_18
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6 + V_7 + V_8 + V_9 + 
+##     V_10 + V_11 + V_12 + V_13 + V_14 + V_15 + V_16 + V_17 + V_18
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   390728.8  0.8074577  40590.86  0.03045854 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   431799.2  0.7859107  61362.14  0.06692374 
+## 
+##  
+## V_168 ~ V_21
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6 + V_7 + V_8 + V_9 + 
+##     V_10 + V_11 + V_12 + V_13 + V_14 + V_15 + V_16 + V_17 + V_18 + 
+##     V_19 + V_20 + V_21
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   352812.7  0.8380046  43366.05  0.03390509 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   387963.8  0.8341815  61484.88  0.04162441 
+## 
+##  
+## V_168 ~ V_24
+## V_168 ~ V_1 + V_2 + V_3 + V_4 + V_5 + V_6 + V_7 + V_8 + V_9 + 
+##     V_10 + V_11 + V_12 + V_13 + V_14 + V_15 + V_16 + V_17 + V_18 + 
+##     V_19 + V_20 + V_21 + V_22 + V_23 + V_24
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   334478.3  0.8460279  49631.83  0.03475179 
+## 
+##  
+## Linear Regression 
+## 
+## 813 samples
+## 167 predictors
+## 
+## No pre-processing
+## Resampling: Bootstrapped (25 reps) 
+## Summary of sample sizes: 813, 813, 813, 813, 813, 813, ... 
+## Resampling results
+## 
+##   RMSE      Rsquared   RMSE SD   Rsquared SD
+##   421805.6  0.7698098  104709.7  0.1329751  
+## 
+## 
+</code></pre>
+
+<h3>Plot the mRSE values for n in (1;24) computed on the test dataset</h3>
+
+<pre><code class="r">ggplot(data=results, aes(x=V, y=mRSE, group=regression, shape=regression, colour=regression)) + 
+  geom_line(size=1.5) + 
+  geom_point(size=3, fill=&quot;white&quot;) +
+  scale_shape_manual(values=c(22,21))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-15"/> </p>
+
+<h3>End</h3>
+
+</body>
+
+</html>
